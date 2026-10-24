@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 struct expr {
-    char op1[20], op[2], op2[20], res[20];
+    char res[20], op1[20], op[2], op2[20];
 };
 
 struct expr e[20];
@@ -29,36 +29,17 @@ void change(int p, char value[])
 int main()
 {
     int i, a, b, result;
-    char line[100], value[20];
-    char *eq, *p;
+    char value[20];
 
     printf("Enter number of expressions: ");
     scanf("%d", &n);
 
-    getchar();
+    printf("Enter each expression as: result operand1 operator operand2\n");
+    printf("For assignment, enter: result = value\n");
 
     for (i = 0; i < n; i++) {
-        printf("Enter expression: ");
-        fgets(line, sizeof(line), stdin);
-        line[strcspn(line, "\n")] = '\0';
-
-        eq = strchr(line, '=');
-        *eq = '\0';
-
-        strcpy(e[i].res, line);
-        strcpy(e[i].op1, eq + 1);
-
-        p = strpbrk(e[i].op1, "+-*/");
-
-        if (p != NULL) {
-            e[i].op[0] = *p;
-            e[i].op[1] = '\0';
-            *p = '\0';
-            strcpy(e[i].op2, p + 1);
-        } else {
-            strcpy(e[i].op, "=");
-            strcpy(e[i].op2, "-");
-        }
+        scanf("%s %s %s %s",
+              e[i].res, e[i].op, e[i].op1, e[i].op2);
     }
 
     for (i = 0; i < n; i++) {
@@ -75,6 +56,7 @@ int main()
             case '+': result = a + b; break;
             case '-': result = a - b; break;
             case '*': result = a * b; break;
+
             case '/':
                 if (b == 0) {
                     printf("Division by zero!\n");
@@ -82,13 +64,15 @@ int main()
                 }
                 result = a / b;
                 break;
-            default: continue;
+
+            default:
+                continue;
         }
 
         sprintf(value, "%d", result);
 
-        strcpy(e[i].op1, value);
         strcpy(e[i].op, "=");
+        strcpy(e[i].op1, value);
         strcpy(e[i].op2, "-");
 
         change(i, value);
