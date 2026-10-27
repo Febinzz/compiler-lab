@@ -34,7 +34,7 @@ int main()
     printf("Enter number of expressions: ");
     scanf("%d", &n);
 
-    printf("Enter each expression as: result operand1 operator operand2\n");
+    printf("Enter each expression as: result operator operand1  operand2\n");
     printf("For assignment, enter: result = value\n");
 
     for (i = 0; i < n; i++) {
