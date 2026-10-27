@@ -13,7 +13,7 @@ void main()
     for(int i=0;i<strlen(exxp);i++){
         if (exxp[i]=='/')
             {
-             printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1],val);
+             printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1]);
                 exxp[i-1]=count + '0';
              for( j=i;exxp[j+2]!='\0';j++)
                  {
@@ -26,7 +26,7 @@ void main()
         for(int i=0;i<strlen(exxp);i++){
         if (exxp[i]=='*')
             {
-              printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1],val);
+              printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1]);
                 exxp[i-1]=count + '0';
              for( j=i;exxp[j+2]!='\0';j++)
                  {
@@ -41,7 +41,7 @@ void main()
         for(int i=0;i<strlen(exxp);i++){
         if (exxp[i]=='+')
             {
-             printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1],val);
+             printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1]);
                 exxp[i-1]=count + '0';
              for( j=i;exxp[j+2]!='\0';j++)
                  {
@@ -55,7 +55,7 @@ void main()
         for(int i=0;i<strlen(exxp);i++){
         if (exxp[i]=='-')
             {
-              printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1],val);
+              printf("(%d) %c %c %c \n",count,exxp[i],exxp[i-1],exxp[i+1]);
                 exxp[i-1]=count + '0';
              for( j=i;exxp[j+2]!='\0';j++)
                  {
